@@ -19,10 +19,8 @@ namespace ElementorAwesomesauce\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	// Exit if accessed directly.
-	exit;
-}
+// Security Note: Blocks direct access to the plugin PHP files.
+defined( 'ABSPATH' ) || die();
 
 /**
  * Awesomesauce widget class.
@@ -30,6 +28,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 class Awesomesauce extends Widget_Base {
+	/**
+	 * Class constructor.
+	 *
+	 * @param array $data Widget data.
+	 * @param array $args Widget arguments.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+		wp_register_style( 'awesomesauce', plugins_url( '/assets/css/awesomesauce.css', ELEMENTOR_AWESOMESAUCE ), array(), '1.0.0' );
+	}
 
 	/**
 	 * Retrieve the widget name.
@@ -86,6 +95,13 @@ class Awesomesauce extends Widget_Base {
 	 */
 	public function get_categories() {
 		return array( 'general' );
+	}
+	
+	/**
+	 * Enqueue styles.
+	 */
+	public function get_style_depends() {
+		return array( 'awesomesauce' );
 	}
 
 	/**
