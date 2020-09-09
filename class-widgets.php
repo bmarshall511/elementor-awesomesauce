@@ -16,6 +16,9 @@
 
 namespace ElementorAwesomesauce;
 
+// Security Note: Blocks direct access to the plugin PHP files.
+defined( 'ABSPATH' ) || die();
+
 /**
  * Class Plugin
  *
