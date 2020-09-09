@@ -55,18 +55,6 @@ class Widgets {
 	}
 
 	/**
-	 * Registers the widget scripts.
-	 *
-	 * Load required plugin core files.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function widget_scripts() {
-		wp_register_script( 'elementor-awesomesauce', plugins_url( '/assets/js/awesomesauce.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
-	}
-
-	/**
 	 * Include Widgets files
 	 *
 	 * Load widgets files
@@ -103,10 +91,6 @@ class Widgets {
 	 * @access public
 	 */
 	public function __construct() {
-
-		// Register the widget scripts.
-		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'widget_scripts' ) );
-
 		// Register the widgets.
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_widgets' ) );
 	}
