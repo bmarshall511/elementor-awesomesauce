@@ -196,8 +196,8 @@ final class Elementor_Awesomesauce {
 				)
 			),
 			'Elementor Awesomesauce',
-			'Elementor',
-			self::MINIMUM_ELEMENTOR_VERSION
+			'PHP',
+			self::MINIMUM_PHP_VERSION
 		);
 	}
 }
